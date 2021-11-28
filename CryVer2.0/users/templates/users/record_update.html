@@ -1,0 +1,54 @@
+{% extends 'users/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="profile_pic img-fluid" 
+                        src="{{request.user.profile.profile_pic.url}}" 
+                        alt="">
+                <span ><p>{{request.user.first_name  }}</p></span>
+                <span class="text-black-50">{{request.user.email}}</span>
+                <span> </span>
+            </div>
+        </div>
+        <div class="col-md-9 border-right">
+            <div class="p-3 py-5">
+                <div class="text">
+                    <h2 class="text-center">Medical Record</h2>
+                </div>
+                <div class="shadow-box rounded">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group p-4 px-5">
+                        <div class="row mt-3 d-flex">
+                            <div class="col-5 ">
+                                <p><strong>CCCD/CMND: </strong></p>
+                                <p><strong>BHYT: </strong></p>
+                            </div>
+                            <div class="col-7">
+                                <p> {{record_form.cccd}} </p>
+                                <p> {{record_form.bhyt}} </p>
+                            </div>
+                        </div>
+                        {{record_form.as_p}}
+                        {{record_form.ques2.lable}}
+                        {{record_form.ques3}}
+                        {{record_form.ques4}}
+                        {{record_form.ques5}}
+                        </fieldset>
+                        <div class="form-group">
+                        <button type="submit" class="btn btn-outline-info">Change</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,77 @@
+{% extends 'users/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-right p-3 py-5">
+                <img class="profile_pic img-fluid" 
+                        src="{{request.user.profile.profile_pic.url}}" 
+                        alt="">
+                        <span><br></span>
+                <span ><p>{{request.user.first_name  }}</p></span>
+                <div class="info d-flex ">
+                <div class="col-7">
+                    <p><strong>Email </strong></p>
+                    <p><strong>Ngày sinh </strong></p>
+                    <p><strong>Giới tính </strong></p>
+                    <p><strong>Tỉnh, thành phố </strong></p>
+                    <p><strong>Quận, huyện </strong></p>
+                    <p><strong>Điện thoại </strong></p>
+                </div>
+                <div class="col-7">
+                    <p> {{request.user.email}} </p>
+                    <p>{{request.user.profile.birthday}} </p>
+                    <p>{{request.user.profile.gender}} </p>
+                    <p>{{request.user.profile.city}} </p>
+                    <p>{{request.user.profile.district}} </p>
+                    <p>{{request.user.profile.phone}} </p>
+                 </div>
+                </div>
+                <span> </span>
+            </div>
+        </div>
+        <div class="col-md-9 border-right">
+            <div class="p-3 py-5">
+                <div class="text">
+                    <h2 class="text-center">Medical Record</h2>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-5 ">
+                        <p><strong>CCCD/CMND: </strong></p>
+                        <p><strong>BHYT: </strong></p>
+                    </div>
+                    <div class="col-7">
+                        <p> {{request.user.record.cccd}} </p>
+                        <p> {{request.user.record.byht}} </p>
+                    </div>
+                        <p><strong>Trong vòng 21 ngày qua Anh/Chị đã đến vùng xác định có người mắc bệnh COVID-19 không? </strong></p>
+                        <p><strong>Anh/Chị có sống, làm việc cùng người đã được xác định hoặc nghi ngờ mắc bệnh COVID -19 không?</strong></p>
+                        <p><strong>Anh/Chị có ngồi gần trên cùng chuyến xe/tàu/máy bay ... với trường hợp xác định hoặc nghi ngờ mắc bệnh COVID-19 không? </strong></p>
+                        <p><strong>Anh/Chị có tiếp xúc với người có một trong các biểu hiện sau đây (Sốt, ho, khó thở, Viêm phổi): </strong></p>
+                        <p><strong>Trong vòng 21 ngày qua, Anh/Chị có thấy xuất hiện ít nhất 1 trong các dấu hiệu nào sau đây không: </strong></p>
+                    <div class="col-5 ">
+                        <p><strong>Ngày khám: </strong></p>
+                        <p><strong>Điều trị </strong></p>
+                        <p><strong>Ghi chú: </strong></p>
+                        <p><strong>Tình trạng: </strong></p>
+                    </div>
+                    <div class="col-7">
+                        <p> {{request.user.record.date}} </p>
+                        <p> {{request.user.record.treatment}} </p>
+                        <p> {{request.user.record.note}} </p>
+                        <p> {{request.user.record.status}} </p>
+                    </div>
+                </div>
+                <div class="gap-2 col-2 mx-auto">
+                    <button class="btn btn-outline-info" type="button"><a href="{% url 'record-update' %}" >Khai báo y tế </a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock content %}
