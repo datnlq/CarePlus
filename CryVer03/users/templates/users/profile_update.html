@@ -1,0 +1,22 @@
+{% extends 'users/option.html' %}
+{% block content %}
+{% load static %}
+
+
+<!-- Main Content Here -->
+<div class="shadow-box rounded">
+  <div class="bg-navbar"> <h6 class="white-color p-2">Chỉnh sửa thông tin cá nhân</h6></div>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group p-4 px-5">
+      {{ user_form.as_p}}
+      {{ profile_form.as_p}}
+      <p><strong>Loại tài khoản: </strong> {{request.user.profile.type_account}} </p>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-info">Xác nhận</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+{% endblock content %}
