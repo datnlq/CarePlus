@@ -1,0 +1,132 @@
+{% extends 'base/option.html' %}
+{% block content %}
+{% load static %}
+
+<legend class="border-bottom mb-4 title-color"><h3>Đơn thuốc hôm nay</h3></legend>
+<form method="POST">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-auto">
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 1</label>
+          <div>{{form.m1}}</div>
+          
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 1</label>
+          <div>{{form.d1}}</div>
+        </div>
+      </div>
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 2</label>
+          <div>{{form.m2}}</div>
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 2</label>
+          <div>{{form.d2}}</div>
+        </div>
+      </div>
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 3</label>
+          <div>{{form.m3}}</div>
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 3</label>
+          <div>{{form.d3}}</div>
+        </div>
+      </div>
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 4</label>
+          <div>{{form.m4}}</div>
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 4</label>
+          <div>{{form.d4}}</div>
+        </div>
+      </div>
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 5</label>
+          <div>{{form.m5}}</div>
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 5</label>
+          <div>{{form.d5}}</div>
+        </div>
+      </div>
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 6</label>
+          <div>{{form.m6}}</div>
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 6</label>
+          <div>{{form.d6}}</div>
+        </div>
+      </div>
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 7</label>
+          <div>{{form.m7}}</div>
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 7</label>
+          <div>{{form.d7}}</div>
+        </div>
+      </div>
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 8</label>
+          <div>{{form.m8}}</div>
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 8</label>
+          <div>{{form.d8}}</div>
+        </div>
+      </div>
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 9</label>
+          <div>{{form.m9}}</div>
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 9</label>
+          <div>{{form.d9}}</div>
+        </div>
+      </div>
+      <!--first_name, last_name-->
+      <div class="row g-3 align-items-center">
+        <div class="col-auto gap-3">
+          <label for="m1" class="col-form-label">Thuốc 10</label>
+          <div>{{form.m10}}</div>
+        </div>
+        <div class="col">
+          <label for="d1" class="col-form-label">Liều 10</label>
+          <div>{{form.d10}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto">
+      <label for="m1" class="col-form-label">Ghi chú</label>
+      <div>{{form.note}}</div>
+      <div class="form-group mt-5" style="float:right;">
+        <button class="px-5 py-2" type="submit" class="btn bg-navbar white-color">Xác nhận</button>
+      </div>
+    </div>
+  </div>
+</form> 
+
+{% endblock content %}
