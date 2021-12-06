@@ -1,0 +1,88 @@
+{% extends 'users/base.html' %}
+{% block content %}
+{% load static %}
+<div class="row bg-light p-2" style="font-family: 'Poppins', sans-serif;">
+  <div class="col">
+    <div class="content-section">
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group p-5">
+          <legend class="border-bottom mb-4 title-color"><h3>Đăng ký</h3></legend>
+            <!--username-->
+            <div>
+              <label for="username" class="form-label">Tên đăng nhập</label>
+              {{form.username}}
+              <span id="usernameHelp" class="form-text">
+                <i class="bi bi-check-circle-fill"></i>Tối đa 150 ký tự, chỉ bao gồm số, chữ và @/./+/-/_
+              </span>
+              <div class="error mt-2" style="font-size: 11px; color: brown;">
+                {% for key, value in form.errors.items %}
+                <span class="fieldWrapper">
+                    {% if key == "username"%}
+                      {{ value }}
+                    {% endif %}
+                </span>
+                {% endfor %}
+              </div>
+            </div>      
+            <!--password-->
+            <div class="row g-3 align-items-center">
+              <div class="col-auto gap-3">
+                <label for="password" class="col-form-label">Mật khẩu</label>
+                <!--<input type="password" {% if form.is_bound %} value="{{form.password1.value}}" {% endif %} id="password" class="form-control" aria-describedby="passwordHelp">-->
+                {{form.password1}}
+              </div>
+              <div class="col">
+                <label for="password2" class="col-form-label">Xác nhận mật khẩu</label>
+                <!--<input type="password" {% if form.is_bound %} value="{{form.password2.value}}" {% endif %} id="password2" class="form-control" aria-describedby="passwordHelp">-->
+                {{form.password2}}
+              </div>
+              <span id="passwordHelp" class="form-text">
+                <i class="bi bi-check-circle-fill"> </i>Tối thiểu 8 ký tự.
+              </span>
+            </div>
+            <!--first_name, last_name-->
+            <div class="row g-3 align-items-center">
+              <div class="col-auto gap-3">
+                <label for="first_name" class="col-form-label">Họ</label>
+                <!--<input type="text" {% if form.is_bound %} value="{{form.first_name.value}}" {% endif %} id="first_name" class="form-control">-->
+                {{form.first_name}}
+              </div>
+              <div class="col">
+                <label for="last_name" class="col-form-label">Tên</label>
+                <!--<input type="text" {% if form.is_bound %} value="{{form.last_name.value}}" {% endif %} id="last_name" class="form-control">-->
+                {{form.last_name}}
+              </div>
+              <span id="nameHelp" class="form-text">
+                <i class="bi bi-check-circle-fill"> </i>Tên bao gồm tên lót và tên.
+              </span>
+            </div>
+            <!--email-->
+            <div>
+              <label for="email" class="form-label mt-3">Email</label>
+              {{form.email}}
+              <div class="error mt-2" style="font-size: 11px; color: brown;">
+                {% for key, value in form.errors.items %}
+                <span class="fieldWrapper">
+                    {% if key == "email"%}
+                      {{ value }}
+                    {% endif %}
+                </span>
+                {% endfor %}
+              </div>
+            </div>
+            
+          <div class="form-group mt-3" style="float: right;">
+            <button type="submit" class="btn bg-navbar white-color px-5 py-2">Đăng ký</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="col">
+    <img src="{% static 'images/doctors.svg' %}" alt="">
+  </div>
+</div>
+
+{% endblock content %}
+
