@@ -1,0 +1,21 @@
+{% extends 'base/option.html' %}
+{% block content %}
+{% load static %}
+
+<div>
+  <h5 style="color: #c4559f;">DANH SÁCH ĐÃ KHAI BÁO: <strong>{{count_tc_history}}</strong></h5>
+  <ol class="list-group list-group-numbered mt-3">
+    {% for tc in tc_history %}
+    <li class="list-group-item d-flex justify-content-between align-items-start ">
+      <div class="ms-2 me-auto">
+        <a href="#" class="link-button">{{ tc }}</a>
+      </div>
+    </li>
+    {% empty %}
+      <h3>Chưa có bệnh nhân nào</h3>
+    {% endfor %}
+    
+  </ol>
+</div>
+
+{% endblock content %}

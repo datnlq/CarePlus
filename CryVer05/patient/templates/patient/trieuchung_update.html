@@ -1,0 +1,81 @@
+{% extends 'patient/option.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="shadow-box rounded" style="font-family: 'Poppins', sans-serif;">
+  <div class="bg-navbar"> <h6 class="white-color p-2">Cập nhật triệu chứng</h6></div>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group p-4 px-5">
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+          {{ message }}
+        </div>
+        {% endfor %}
+      {% endif %}
+
+
+      <div class="">
+        <h3 class="title-color mb-4">Triệu chứng</h3>
+        <div>
+          <p><strong>1. Các triệu chứng nặng</strong></p>
+          <p>{{form.TC1}} Các triệu chứng thường gặp (khởi phát) nặng lên liên tục không đỡ: </p>
+          <p>{{form.TC2}} Sốt cao từ 39 độ C không đáp ứng với thuốc hạ sốt (sốt trở lại trong vòng 02h sau dùng thuốc)</p>
+          <p>{{form.TC3}} Khó thở không thể làm việc được phải nghỉ ngơi</p>
+          <p>{{form.TC4}} Mệt mỏi, sinh hoạt khó khăn</p>
+          <p>{{form.TC5}} Huyết áp tăng cao từ 160/100 mmHG không đáp ứng với thuốc thường dùng</p>
+        </div>
+        
+        <div>
+          <p><strong>2. Các triệu chứng/dấu hiệu nghiêm trọng (biến chứng/toàn phát)</strong></p>
+          <p>{{form.TC6}} Đo huyết áp 2 lần có giá trị trung bình dưới 85/5mmHG</p>
+          <p>{{form.TC7}} Nhịp tim tăng cao trên 120 lần/phút hoặc xuống dưới 50 lần/phút, hoặc nhịp thở từ 25 lần/phút </p>
+          <p>{{form.TC8}} Khó thở nhiều không thể nằm để thở </p>
+          <p>{{form.TC9}} Đau tức ngực thành cơn kéo dài từ 5' </p>
+          <p>{{form.TC10}} Mất khả năng nói hoặc cử động</p>
+          <p>{{form.TC11}} Lơ mơ, không tỉnh táo</p>
+          <p>{{form.TC12}} SpO2 < 94% khi nghỉ hoặc tụt SpO2 xuống < 94% sau gắng sức (nếu có thiết bị đo SpO2 tại nhà</p>
+        </div>
+      
+        <div>
+          <p><strong>3. Các triệu chứng ít gặp</strong></p>
+          <p> {{form.TC13}} Tiêu chảy</p>
+          <p> {{form.TC14}} Viêm kết mạc</p>
+          <p> {{form.TC15}} Mất vị giác hoặc khứu giác</p>
+          <p> {{form.TC16}}Da nổi mẩn hay ngón tay hoặc ngón chân bị tất đỏ hoặc tím tái</p>
+        </div>
+      
+        <div>
+          <p><strong>4. Các triệu chứng thường gặp (khởi phát)</strong></p>
+          <p> {{form.TC17}} Sốt dưới 39 độ C</p>
+          <p> {{form.TC18}} Ho khan, đau họng</p>
+          <p> {{form.TC19}} Mệt mỏi nhưng vẫn sinh hoạt bình thường </p>
+          <p> {{form.TC20}} Đau nhức cơ thể</p>
+          <p> {{form.TC21}} Khó thở nhẹ </p>
+          <p> {{form.TC22}} Đau đầu</p>
+        </div>
+        <p>Ghi chú của bệnh nhân:
+          {{form.Note}}
+        </p>
+        <hr>
+        <p> {{form.TC23}} Xác nhận không có triệu chứng gì trong các triệu chứng kể trên</p>
+        <!--email-->
+      </div>
+      
+
+
+
+      <div class="form-group px-5" style="float:right">
+        <button type="submit" 
+                class="btn px-5 py-2" 
+                style="background-color: crimson;color: white;">
+        <b>Xác nhận</b></button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+{% endblock content %}
+
