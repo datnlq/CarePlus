@@ -1,0 +1,53 @@
+{% extends 'base/option1.html' %}
+{% block content %}
+{% load static %}
+
+<div class="col-lg-8  center-block">
+  <div class="loadMore">
+    <div class="central-meta item">
+      <div class="user-post">
+        <div class="friend-info">
+          <div class="friend-name">
+            <ins>THÊM BỆNH NHÂN
+              <hr>
+              <form method="POST" enctype="multipart/form-data" style="font-family: 'Poppins', sans-serif;">
+                {% csrf_token %}
+                <fieldset class="form-group px-5">
+                  {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                      {{ message }}
+                    </div>
+                    {% endfor %}
+                  {% endif %}
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-lg-9">
+                      <div style="font-size: 16px;">
+                        <label for="CMND" class="form-label mt-4">CMND/CCCD</label>
+                        <div>{{add_form.CMND}}</div>
+                        <div class="error" style="font-size: 11px; color: brown;">
+                          {% for key, value in add_form.errors.items %}
+                          <span class="fieldWrapper">
+                            {{ value }}
+                          </span>
+                          {% endfor %}
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" 
+                                  class="btn" 
+                                  style="background-color: crimson;color: white;">
+                          <b>Thêm</b></button>
+                        </div>
+                      </div> 
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'base/option1.html' %}
+{% block content %}
+{% load static %}
+
+<div class="col-lg-8  center-block">
+  <div class="loadMore">
+    <div class="central-meta item">
+      <div class="user-post">
+        <div class="friend-info">
+          <div class="friend-name">
+            <ins>
+              <div>
+                <h5 style="color: #c4559f;">BỆNH NHÂN ĐÃ KHỎI BỆNH <strong>{{count_ok}}</strong></h5>
+                <hr>
+                <ol class="list-group list-group-numbered mt-3">
+                  {% for patient in patient_ok %}
+                  <li class="list-group-item d-flex justify-content-between align-items-start ">
+                    <div class="ms-2 me-auto">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <a href="{% url 'patient' patient.id %}" class="link-button">{{ patient }}</a>
+                        </div>
+                        <div class="col-lg-2">
+                          <a href="{% url 'patienttc' patient.id %}">
+                            <button type="button" class="btn btn-info btn-sm">
+                              Triệu chứng</button>
+                          </a>
+                        </div>
+                        <div class="col-lg-2">
+                          <a href="{% url 'medical' patient.id %}">
+                            <button type="button" class="btn btn-primary btn-sm">
+                              Đơn thuốc</button>
+                          </a>
+                        </div>
+                        <div class="col-lg-2">
+                          <a href="{% url 'deleteok' patient.id %}">
+                            <button type="button" class="btn btn-danger btn-sm">
+                              Xoá</button>
+                          </a>
+                        </div>
+                      </div> 
+                    </div>
+                  </li>
+                  {% empty %}
+                    <h3>Chưa có bệnh nhân nào</h3>
+                  {% endfor %}
+                  
+                </ol>
+              </div>
+            </ins>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
