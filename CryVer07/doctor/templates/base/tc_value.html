@@ -1,0 +1,234 @@
+{% extends 'base/option1.html' %}
+{% block content %}
+{% load static %}
+
+<div class="col-lg-8  center-block">
+  <div class="loadMore">
+    <div class="central-meta item">
+      <div class="user-post">
+        <div class="friend-info">
+          <div class="friend-name">
+            <ins>
+              <legend class="border-bottom mb-4 title-color">{{name}}</legend>
+              {% if messages %}
+                      {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                          {{ message }}
+                        </div>
+                      {% endfor %}
+              {% endif %}
+              <div class="">
+                <h3 class="title-color mb-4">Triệu chứng</h3>
+                <div>
+                  <p><strong>1. Các triệu chứng nặng</strong></p>
+                  <p>Các triệu chứng thường gặp (khởi phát) nặng lên liên tục không đỡ: 
+                    {% if TC1 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;"></b>Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Sốt cao từ 39 độ C không đáp ứng với thuốc hạ sốt (sốt trở lại trong vòng 02h sau dùng thuốc): 
+                    {% if TC2 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Khó thở không thể làm việc được phải nghỉ ngơi: 
+                    {% if TC3 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Mệt mỏi, sinh hoạt khó khăn: 
+                    {% if TC4 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Huyết áp tăng cao từ 160/100 mmHG không đáp ứng với thuốc thường dùng:
+                    {% if TC5 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                </div>
+                
+                <div>
+                  <p><strong>2. Các triệu chứng/dấu hiệu nghiêm trọng (biến chứng/toàn phát)</strong></p>
+                  <p>Đo huyết áp 2 lần có giá trị trung bình dưới 85/5mmHG: 
+                    {% if TC6 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Nhịp tim tăng cao trên 120 lần/phút hoặc xuống dưới 50 lần/phút, hoặc nhịp thở từ 25 lần/phút: 
+                    {% if TC7 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Khó thở nhiều không thể nằm để thở: 
+                    {% if TC8 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Đau tức ngực thành cơn kéo dài từ 5': 
+                    {% if TC9 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Mất khả năng nói hoặc cử động:
+                    {% if TC10 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Lơ mơ, không tỉnh táo:
+                    {% if TC11 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>SpO2 < 94% khi nghỉ hoặc tụt SpO2 xuống < 94% sau gắng sức (nếu có thiết bị đo SpO2 tại nhà: 
+                    {% if TC12 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                </div>
+
+                <div>
+                  <p><strong>3. Các triệu chứng ít gặp</strong></p>
+                  <p>Tiêu chảy: 
+                    {% if TC13 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Viêm kết mạc: 
+                    {% if TC14 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Mất vị giác hoặc khứu giác: 
+                    {% if TC15 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Da nổi mẩn hay ngón tay hoặc ngón chân bị tất đỏ hoặc tím tái:
+                    {% if TC16 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                </div>
+
+                <div>
+                  <p><strong>4. Các triệu chứng thường gặp (khởi phát)</strong></p>
+                  <p>Sốt dưới 39 độ C: 
+                    {% if TC17 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Ho khan, đau họng: 
+                    {% if TC18 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Mệt mỏi nhưng vẫn sinh hoạt bình thường: 
+                    {% if TC19 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Đau nhức cơ thể: 
+                    {% if TC20 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Khó thở nhẹ:
+                    {% if TC21 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                  <p>Đau đầu:
+                    {% if TC22 == False %}
+                    <b style="color:cornflowerblue;">Không</b> 
+                    {% else %}
+                    <b style="color: red;">Có</b> 
+                    {% endif %}
+                  </p>
+                </div>
+                <p>Ghi chú của bệnh nhân:
+                  {{trieuchung.Note.value}}
+                </p>
+                <hr>
+                <p>Xác nhận không có triệu chứng gì trong các triệu chứng kệ trên:
+                  {% if TC23 == False %}
+                  <b style="color: red;">Không</b> 
+                  {% else %}
+                  <b style="color:cornflowerblue;">Có</b> 
+                  {% endif %}
+                </p>
+                <!--email-->
+                <hr>
+                <div>
+                  <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="col-auto">
+                        <label for="DanhGia" class="form-label mt-3"> <strong>Đánh giá</strong> </label>
+                        {{value_patient.DanhGia}}
+                      </div>
+                      <div class="col-auto">
+                        <div class="py-3">
+                          <button type="submit" 
+                                class="btn px-5 py-2" 
+                                style="background-color: crimson;color: white;">
+                        <b>Xác nhận</b></button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>   
+                </div>
+              </div>
+            </ins>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+{% endblock content %}

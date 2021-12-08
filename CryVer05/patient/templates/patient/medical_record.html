@@ -1,0 +1,38 @@
+{% extends 'patient/option.html' %}
+{% block content %}
+{% load static %}
+
+<legend class="border-bottom mb-4 title-color">{{request.user.first_name}} {{request.user.last_name}}</legend>
+<h3 class="title-color mb-4">Đơn thuốc</h3>
+<div class="row" style="font-family: 'Poppins', sans-serif;">
+  <div class="row">
+    <div class="col-auto">
+      <div>Thuốc 1:<b style="color: cornflowerblue;"> {{m1}}</b></div> 
+      <div class="mt-1">Thuốc 2:<b style="color: cornflowerblue;"> {{m2}}</b></div>
+      <div class="mt-1">Thuốc 3:<b style="color: cornflowerblue;"> {{m3}}</b></div> 
+      <div class="mt-1">Thuốc 4:<b style="color: cornflowerblue;"> {{m4}}</b></div>
+      <div class="mt-1">Thuốc 5:<b style="color: cornflowerblue;"> {{m5}}</b></div> 
+      <div class="mt-1">Thuốc 6:<b style="color: cornflowerblue;"> {{m6}}</b></div> 
+      <div class="mt-1">Thuốc 7:<b style="color: cornflowerblue;"> {{m7}}</b></div> 
+      <div class="mt-1">Thuốc 8:<b style="color: cornflowerblue;"> {{m8}}</b></div> 
+      <div class="mt-1">Thuốc 9:<b style="color: cornflowerblue;"> {{m9}}</b></div>
+      <div class="mt-1">Thuốc 10:<b style="color: cornflowerblue;"> {{m10}}</b></div>   
+    </div>
+    <div class="col-auto">
+      <div>Liều 1:<b style="color: rgb(151, 24, 94);"> {{d1}}</b></div>
+      <div class="mt-1">Liều 2:<b style="color: rgb(151, 24, 94);"> {{d2}}</b></div>
+      <div class="mt-1">Liều 3:<b style="color: rgb(151, 24, 94);"> {{d3}}</b></div>
+      <div class="mt-1">Liều 4:<b style="color: rgb(151, 24, 94);"> {{d4}}</b></div>
+      <div class="mt-1">Liều 5:<b style="color: rgb(151, 24, 94);"> {{d5}}</b></div>
+      <div class="mt-1">Liều 6:<b style="color: rgb(151, 24, 94);"> {{d6}}</b></div>
+      <div class="mt-1">Liều 7:<b style="color: rgb(151, 24, 94);"> {{d7}}</b></div>
+      <div class="mt-1">Liều 8:<b style="color: rgb(151, 24, 94);"> {{d8}}</b></div>
+      <div class="mt-1">Liều 9:<b style="color: rgb(151, 24, 94);"> {{d9}}</b></div>
+      <div class="mt-1">Liều 10:<b style="color: rgb(151, 24, 94);"> {{d10}}</b></div>
+    </div>
+    <p  class="mt-1">Ghi chú của bác sĩ: <i>{{note}}</i></p>
+    <i>Chúc bạn mau khoẻ bệnh!!</i>
+  </div>
+</div>
+
+{% endblock content %}
