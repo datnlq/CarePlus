@@ -1,0 +1,48 @@
+{% extends 'users/base.html' %}
+{% block content %}
+{% load static %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<div class="row bg-light p-4">
+  <div class="col">
+    <div class="content-section">
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group p-5">
+          <legend class="border-bottom mb-4 title-color"><h3>Change Password</h3></legend>
+            <form>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            
+                            <label>Current Password</label>
+                            <div class="form-group pass_show"> 
+                                {{form.old_password}}
+                            </div> 
+                            <label>New Password</label>
+                            <div class="form-group pass_show"> 
+                                {{form.new_password1}}
+                            </div> 
+                            <label>Confirm Password</label>
+                            <div class="form-group pass_show"> 
+                                {{form.new_password2}} 
+                            </div> 
+                            
+                        </div>  
+                    </div>
+                </div>
+            </form>
+          <div class="form-group">
+            <button type="submit" class="btn bg-navbar white-color">Change Password</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="col">
+    <img src="{% static 'images/doctors.svg' %}" alt="">
+  </div>
+</div>
+
+
+{% endblock content %}
+
