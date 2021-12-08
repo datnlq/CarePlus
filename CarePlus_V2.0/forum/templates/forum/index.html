@@ -1,0 +1,98 @@
+{% extends "forum/base.html" %}
+{% block content %}
+{% load static %}
+
+    <section>
+        <div class="ext-gap bluesh high-opacity">
+            <div class="content-bg-wrap" ></div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="top-banner">
+                                <h1>Forum</h1>
+                                <nav class="breadcrumb">
+                                <a class="breadcrumb-item" href="index-2.html">Care Plus</a>
+                                </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- top area animated -->
+
+
+	<section>
+		<div class="gap100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="forum-warper">
+							<div class="post-filter-sec">
+								<form>
+	
+								</form>
+							</div>
+							<a class="btn btn-primary" href="{% url 'topic-add' %}" title=""><i class="fa fa-plus"></i> Add New</a>
+						</div>
+						<div class="forum-list">
+							<table class="table table-responsive">
+								<thead>
+									<tr>
+										<th scope="col">Topic</th>
+										<th scope="col">Post</th>
+										<th scope="col">Comment</th>
+									</tr>
+								</thead>
+                                {% for topic in topics %}
+								<tbody>
+									<tr>
+										<td>
+											<i class="fa fa-comments"></i> 
+											<a href="{% url 'topic-detail' topic.id %}" title="">{{topic.title}}</a><p class="px-2 py-2 pb-2"><small>{{topic.timestamp}}</small></p>
+											<p>{{topic.description}} &#58;-&#41;</p>
+										</td>
+									</tr>
+								</tbody>
+                                {% endfor %}
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<aside class="sidebar full-style">
+							<div class="widget">
+								<h4 class="widget-title">Forum Statistics</h4>
+								<ul class="forum-static">
+									<li>
+										<a href="#" title="">Topics</a>
+										<span>{{ count }}</span>
+									</li>
+								</ul>
+							</div>
+							<div class="widget">
+								<h4 class="widget-title">Featured Topics</h4>
+								<ul class="feature-topics">
+									<li>
+										<i class="fa fa-star"></i>
+										<a href="#" title="">What is your favourit season in summer?</a>
+										<span>2 hours, 16 minutes ago</span>
+									</li>
+									<li>
+										<i class="fa fa-star"></i>
+										<a href="#" title="">The new Goddess of War trailer was launched at E3!</a>
+										<span>2 hours, 16 minutes ago</span>
+									</li>
+									<li>
+										<i class="fa fa-star"></i>
+										<a href="#" title="">Summer is Coming! Picnic in the east boulevard park</a>
+										<span>2 hours, 16 minutes ago</span>
+									</li>
+								</ul>
+							</div>
+						</aside>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock content %} 

@@ -1,0 +1,111 @@
+{% extends "forum/base.html" %}
+{% block content %}
+{% load static %}
+
+    <section>
+        <div class="ext-gap bluesh high-opacity">
+            <div class="content-bg-wrap" ></div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="top-banner">
+                                <h1>Forum</h1>
+                                <nav class="breadcrumb">
+                                <a class="breadcrumb-item" href="index-2.html">Care Plus</a>
+                                </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- top area animated -->
+
+
+	<section>
+		<div class="gap100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="forum-warper">
+							<div class="post-filter-sec">
+								<form >
+                                </form>
+							</div>
+							<a class="btn btn-primary" href="{% url 'forum-index' %}" title=""></i> Back</a>
+                            {% if request.user.is_authenticated %}
+                            <a class="btn btn-primary float-right" href="{% url 'post-create' object.id %}" title=""></i> New Post</a>
+                            {% endif %}
+						</div>
+						<div class="forum-list">
+							<table class="table table-responsive">
+								<thead>
+									<tr>
+										<th scope="col">{{ object.title }}</th>
+                                        
+									</tr>
+								</thead>
+                                {% for post in posts %}
+								<tbody>
+									<tr>
+										<td class="d-flex">
+											<figure>
+                                                <img src="{{ post.author.profile.profile_pic.url }}" alt="" width="70" height="70" >
+                                            </figure>
+                                            <div class="friend-name">
+                                                <ins><a href="#" title="">{{post.author.first_name}}</a></ins>
+                                                <span>published: {{post.timestamp}}</span>
+
+                                                <div class="post-meta">
+                                                <h4><a href="{% url 'post-detail' post.id %}" class="text-body">{{post.title}}</a></h4>
+                                                <div class="description">
+                                                    <p>{{post.body}}</p>
+                                                </div>
+                                            </div>
+                                            </div>
+                        
+										</td>
+									</tr>
+								</tbody>
+                                {% endfor %}
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<aside class="sidebar full-style">
+							<div class="widget">
+								<h4 class="widget-title">Forum Statistics</h4>
+								<ul class="forum-static">
+									<li>
+										<a href="#" title="">Posts</a>
+										<span>{{ count }}</span>
+									</li>
+								</ul>
+							</div>
+							<div class="widget">
+								<h4 class="widget-title">Suggest Topics</h4>
+								<ul class="feature-topics">
+									<li>
+										<i class="fa fa-star"></i>
+										<a href="#" title="">What is your favourit season in summer?</a>
+										<span>2 hours, 16 minutes ago</span>
+									</li>
+									<li>
+										<i class="fa fa-star"></i>
+										<a href="#" title="">The new Goddess of War trailer was launched at E3!</a>
+										<span>2 hours, 16 minutes ago</span>
+									</li>
+									<li>
+										<i class="fa fa-star"></i>
+										<a href="#" title="">Summer is Coming! Picnic in the east boulevard park</a>
+										<span>2 hours, 16 minutes ago</span>
+									</li>
+								</ul>
+							</div>
+						</aside>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock content %} 

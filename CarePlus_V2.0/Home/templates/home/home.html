@@ -1,0 +1,141 @@
+{% extends "forum/base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	 <section>
+			<div class="feature-photo">
+				<figure><img src="{% static 'images/resources/timeline-1.jpg' %}" alt=""></figure>
+				<div class="container-fluid">
+					<div class="row merged">
+						<div class="col-lg-2 col-sm-3">
+							<div class="user-avatar">
+								<figure>
+									<img src="{{ user.profile.profile_pic.url }}" alt="">
+								</figure>
+							</div>
+						</div>
+						<div class="col-lg-10 col-sm-9">
+							<div class="timeline-info">
+								<ul>
+									<li class="admin-name">
+									  <h3>{{ user.last_name }}{{ user.first_name }}</h3>
+									  <h5>{{ user.profile.type_account }}</h5>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    </section>
+
+<section>
+		<div class="gap gray-bg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-15">
+						<div class="row" id="page-contents">
+							<div class="col-lg-3">
+								<aside class="sidebar static">
+									<div class="widget">
+										<h4 class="widget-title">Shortcuts</h4>
+										<ul class="naves">
+											<li>
+												<i class="ti-clipboard"></i>
+												<a href="{% url 'home' %}" title="">News feed</a>
+											</li>
+											<li>
+												<i class="ti-mouse-alt"></i>
+												<a href="{% url 'profile-update' %}" title="">Profile</a>
+											</li>
+											<li>
+												<i class="ti-files"></i>
+												<a href="{% url 'forum-index' %}" title="">Forum</a>
+											</li>
+											<li>
+												<i class="ti-power-off"></i>
+												<a href="{% url 'logout' %}" title="">Logout</a>
+											</li>
+										</ul>
+									</div><!-- Shortcuts -->
+                </aside>
+              </div><!-- sidebar -->
+              <div class="col-lg-8">
+								<div class="central-meta">
+									<div class="groups">
+										<span><img src="{% static 'image/logo.svg' %}" alt=""> Covid Status</span>
+									</div>
+									<ul class="liked-pages">
+                    <li>
+											<div class="f-page text-center">
+                        <br>
+												<figure>
+													<i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+												</figure>
+												<div class="page-infos">
+													<h5><a href="#" title="">TotalCases</a></h5>
+													<span><a href="#" title="">{{ vietnam_totalcase }}</a></span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="f-page text-center">
+                      <br>
+												<figure>
+													<i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+												</figure>
+												<div class="page-infos">
+													<h5><a href="#" title="">TotalDeaths</a></h5>
+													<span><a href="#" title="">{{ vietnam_deaths }}</a></span>
+												</div>
+											</div>
+										</li>
+                    <li>
+											<div class="f-page text-center">
+                      <br>
+												<figure>
+													<i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+												</figure>
+												<div class="page-infos">
+													<h5><a href="#" title="">TotalRecovered</a></h5>
+													<span><a href="#" title="">{{ vietnam_recovered }}</a></span>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div><!-- photos -->
+							</div><!-- centerl meta -->
+            </div><!-- row -->
+          </div><!-- container -->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="central-meta">
+      <ul class="nearby-contct">
+      {% for new, des, i, url  in mylist %}
+				<li>
+						<div class="nearly-pepls d-flex">
+								<a href="{{url}}"> <img class="" src="{{i}}" alt="" width="400" height="400"></a>
+
+								<div class="pepl-info">
+									<p class="font-weight-bold" style="font-size: 2rem;";><a href="{{url}}" title=""></a>{{new}}</p>
+										<p href="{{url}}" style="font-size: 1rem;">{{des}}</p>
+								</div>
+						</div>
+				</li>
+      {% endfor %}
+      </ul>
+			</ul>
+
+		</div><!-- centerl meta -->
+
+
+
+
+  </section>
+
+
+
+{% endblock content %} 

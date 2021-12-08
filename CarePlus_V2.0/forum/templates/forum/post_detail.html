@@ -1,0 +1,95 @@
+{% extends "forum/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+
+<section class="col-6 col-lg-10 d-flex">
+    <div class="col-3">
+    </div>
+    <div class="col-lg-15">
+		<div class="forum-warper">
+			<div class="post-filter-sec">
+				<form>
+				</form>
+			</div>
+			<a class="btn btn-primary" href="{% url 'forum-index' %}" title=""></i> Back</a>
+		</div>
+		<div class="central-meta">
+            <div class="user-post">
+                <div class="friend-info">
+                    <figure>
+                        <img src="{{ post.author.profile.profile_pic.url }}" alt="">
+                    </figure>
+                    <div class="friend-name">
+                        <ins><a href="time-line.html" title="">{{post.author.first_name}}</a></ins>
+                        <span>published: {{post.timestamp}}</span>
+                    </div>
+                    <div class="post-meta">
+                        <h4>{{post.title}}</h4>
+                        <div class="description">
+                            <p>{{post.body}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="central-meta">
+            	<div class="coment-area">
+                {% for comment in comments %}
+					<ul class="we-comet">
+						<li>
+							<div class="comet-avatar">
+								<img src="{{ comment.author.profile.profile_pic.url }}" height="40" width="40">
+							</div>
+							<div class="we-comment">
+								<div class="coment-head">
+									<h5><a href="time-line.html" title="">{{comment.author.first_name}}</a></h5>
+									<span><small>{{comment.timestamp}}</small></span>
+								</div>
+									<p>{{ comment.body }}</p>
+							</div>
+						</li>
+											
+					</ul>
+                {% endfor %}
+				</div>
+        </div>
+
+        <div class="central-meta">
+			<li class="post-comment d-flex">
+				<div class="comet-avatar">
+					<img src="{{ user.profile.profile_pic.url }}" alt="">
+				</div>
+				<div class="post-comt-box">
+					<h5>{{ user.first_name }}</h5>
+					<form method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-info" type="submit">Comment</button>
+                        </div>
+                    </form>
+				</div>
+			</li>
+        </div>
+
+		
+
+		<script>
+            document.getElementById("div_id_author").style.display="none"
+            document.getElementById("div_id_post").style.display="none"
+            document.getElementById("div_id_body").getElementsByTagName('label')[0].style.display="none"
+        </script>
+
+
+
+
+
+    </div>
+</section>
+
+
+{% endblock content %} 
