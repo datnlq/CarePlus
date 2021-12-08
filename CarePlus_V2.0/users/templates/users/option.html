@@ -95,8 +95,8 @@
 			<ul>
 				<li><span>Forum</span>
 					<ul>
-						<li><a href="forum-open-topic.html" title="">Forum Open Topic</a></li>
-						<li><a href="forum-create-topic.html" title="">Forum Create Topic</a></li>
+						<li><a href="{% url 'forum-index' %}" title="">Forum Open Topic</a></li>
+						<li><a href="{% url 'topic-add'%}" title="">Forum Create Topic</a></li>
 					</ul>
 				</li>
 				<li><span>More pages</span>
@@ -166,8 +166,8 @@
 				<li>
 					<a href="#" title="">Forum</a>
 					<ul>
-						<li><a href="forum-open-topic.html" title="">Forum Open Topic</a></li>
-						<li><a href="forum-create-topic.html" title="">Forum Create Topic</a></li>
+						<li><a href="{% url 'forum-index' %}" title="">Forum Open Topic</a></li>
+						<li><a href="{% url 'topic-add'%}" title="">Forum Create Topic</a></li>
 					</ul>
 				</li>
 				<li>
@@ -191,8 +191,7 @@
 
 						{% for notification in  user.notifications.unread %}
 							<div>
-								Notification from <b>{{ notification.actor }}</b>
-							<button class="dropdown-item" type="button">{{ notification.description }}</button>			
+								Notification from <b>{{ notification.actor }}</b>	
 							</div>
 							<div class="dropdown-divider"></div>
 						{% endfor %}
@@ -231,7 +230,6 @@
     <span class="ti-menu main-menu" data-ripple=""></span>
       <div class="side-panel">
 		  <h4 class="panel-title text-center">General Setting</h4>
-		    <form method="post">
           <div class="setting-row">
             <a href="{% url 'login' %}" title="">Đăng nhập</a>
           </div>
@@ -285,11 +283,18 @@
 					{% block content %}
 	
 					{% endblock content %}
+						 {% block contentt %}
+						<div class="shadow-box rounded">
+							<div class="bg-navbar rounded"> <h6 class="white-color p-2">Tuỳ chọn</h6></div>
+						</div>
+						{% endblock contentt %}
 					{% else %}
 					{% block contentx %}
-	
 					{% endblock contentx %}
 					{% endif %}
+
+
+					
 				</div>
 			</div>
 		</div>	

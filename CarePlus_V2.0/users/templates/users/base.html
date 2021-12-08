@@ -141,10 +141,12 @@
 			<ul class="main-menu">
 				<li>
 					<a href="#" title="">Forum</a>
+				<li><span>Forum</span>
 					<ul>
-						<li><a href="forum-open-topic.html" title="">Forum Open Topic</a></li>
-						<li><a href="forum-create-topic.html" title="">Forum Create Topic</a></li>
+						<li><a href="{% url 'forum-index' %}" title="">Forum Open Topic</a></li>
+						<li><a href="{% url 'topic-add'%}" title="">Forum Create Topic</a></li>
 					</ul>
+				</li>
 				</li>
 				<li>
 					<a href="#" title="">More pages</a>
@@ -193,7 +195,7 @@
           </div>
           {% if request.user.profile.isDoctor %}
           <div class="setting-row">
-            <a href="forum-create-topic.html" title="">Manager Patient</a>
+            <a href="{% url 'addpatient' %}" title="">Manager Patient</a>
           </div>
           {% endif %}
           <div class="setting-row">
@@ -217,7 +219,7 @@
           </div>
           {% if request.user.profile.isDoctor %}
           <div class="setting-row">
-            <a href="forum-create-topic.html" title="">Manager Patient</a>
+            <a href="{% url 'addpatient' %}" title="">Manager Patient</a>
           </div>
           {% endif %}
           <div class="setting-row">
@@ -241,7 +243,7 @@
 
 	 {% block content %}
 	<div class="shadow-box rounded">
-		<div class="bg-navbar rounded"> <h6 class="white-color p-2">Tuỳ chọn</h6></div>
+		<div class="bg-navbar rounded"> <h6 class="white-color p-2"></h6></div>
 	</div>
 	{% endblock content %}
 

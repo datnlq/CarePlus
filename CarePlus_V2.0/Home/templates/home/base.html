@@ -142,8 +142,8 @@
 				<li>
 					<a href="#" title="">Forum</a>
 					<ul>
-						<li><a href="forum-open-topic.html" title="">Forum Open Topic</a></li>
-						<li><a href="forum-create-topic.html" title="">Forum Create Topic</a></li>
+						<li><a href="{% url 'forum-index' %}" title="">Forum Open Topic</a></li>
+						<li><a href="{% url 'create-add'%}" title="">Forum Create Topic</a></li>
 					</ul>
 				</li>
 				<li>
@@ -219,7 +219,7 @@
           </div>
           {% if request.user.profile.isDoctor %}
           <div class="setting-row">
-            <a href="forum-create-topic.html" title="">Manager Patient</a>
+            <a href="{% url 'addpatient'%}" title="">Manager Patient</a>
           </div>
           {% endif %}
           <div class="setting-row">

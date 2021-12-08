@@ -1,20 +1,24 @@
-{% extends 'users/base.html' %}
-{% block content %}
-{% load static %}
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<div class="row bg-light p-4">
-  <div class="col">
-    <div class="content-section">
-      <form method="POST">
-        {% csrf_token %}
-        <fieldset class="form-group p-5">
-          <legend class="border-bottom mb-4 title-color"><h3>Change Password</h3></legend>
-            <form>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            
-                            <label>Current Password</label>
+
+
+
+<div class="col-lg-9  center-block">
+  <div class="loadMore">
+    <div class="central-meta item">
+      <div class="user">
+        <div class="friend-info">
+          <div class="friend-name">
+            <ins>
+              <div class="row">
+                <div class="col-lg-6">
+                  <img src="#" alt="">
+                </div>
+                <div class="col-lg-6">
+                  <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                      <legend class="border-bottom mb-4 title-color"><h4>Thay đổi mật khẩu</h4></legend>
+                      <div class="row">
+                        <label>Current Password</label>
                             <div class="form-group pass_show"> 
                                 {{form.old_password}}
                             </div> 
@@ -26,23 +30,23 @@
                             <div class="form-group pass_show"> 
                                 {{form.new_password2}} 
                             </div> 
-                            
-                        </div>  
-                    </div>
+                          </div>
+
+                      <button type="submit" 
+                                class="btn px-5 py-2" 
+                                style="background-color: crimson;color: white;">
+                        <b>Xác nhận</b>
+                      </button>
+                    </fieldset>
+                  </form>
                 </div>
-            </form>
-          <div class="form-group">
-            <button type="submit" class="btn bg-navbar white-color">Change Password</button>
+              </div>
+            </ins>
           </div>
-        </fieldset>
-      </form>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="col">
-    <img src="{% static 'images/doctors.svg' %}" alt="">
-  </div>
+</div>
 </div>
 
-
-{% endblock content %}
 

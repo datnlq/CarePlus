@@ -5,12 +5,13 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from accounts.models import Account, Doctor
-from .forms import DoctorUpdateForm, HealthyDeclareUpdateForm, LoginForm, ProfileUpdateForm, RegisterForm, UserUpdateForm
+from .forms import DoctorUpdateForm, HealthyDeclareUpdateForm, LoginForm, ProfileUpdateForm, RegisterForm, UserUpdateForm,PasswordChangeeForm
 from django.views.generic import TemplateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from users import forms
 from .models import HealthDeclaration
 from django.contrib import messages
+from django.contrib.auth.forms import PasswordChangeForm
 
 User = get_user_model()
 
@@ -33,13 +34,12 @@ def login_view(request):
 
 @login_required(login_url="login")
 def changepasswd_view(request):
-  form = PasswordChangeForm(request.user, request.POST or None)
+  form = PasswordChangeeForm(request.user, request.POST or None)
   if form.is_valid():
     user = form.save()
     update_session_auth_hash(request, user)
     return redirect("home")
   return render(request, 'users/changepasswd.html', {'form': form})
-
 
 @login_required(login_url="login")
 def logout_view(request):
